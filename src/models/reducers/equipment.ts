@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const fileName = __filename;
-interface Equipment {
+export interface Equipment {
   id: string;
   name: string;
   description: string;
