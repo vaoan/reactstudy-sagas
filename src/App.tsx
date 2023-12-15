@@ -1,12 +1,16 @@
-import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { useTranslation } from "react-i18next";
+import { RouterProvider } from "react-router-dom";
+import router from "configs/routes";
 
 function App() {
   const [t] = useTranslation(["general"]);
   return (
     <div className="App">
+      <h1 className="text-3xl font-bold underline text-red-600">
+        Simple React Typescript Tailwind Sample
+      </h1>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {t("Hello")}
@@ -21,6 +25,7 @@ function App() {
         >
           Learn React
         </a>
+        <RouterProvider router={router} />
       </header>
     </div>
   );
