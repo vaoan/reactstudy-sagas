@@ -1,3 +1,5 @@
+import { combineReducers } from "@reduxjs/toolkit";
+
 const requireReducer = require.context(".", true, /\.ts$/);
 
 const reducers = requireReducer.keys().reduce((acc: any, filename: string) => {
@@ -9,4 +11,6 @@ const reducers = requireReducer.keys().reduce((acc: any, filename: string) => {
   return acc;
 }, {});
 
-export default reducers;
+const rootReducers = combineReducers(reducers);
+
+export default rootReducers;

@@ -1,20 +1,55 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+const fileName = __filename;
+interface Equipment {
+  id: string;
+  name: string;
+  description: string;
+}
 
 interface EquipmentState {
-  // Define your state properties here
+  equipmentList: Equipment[];
+  selectedEquipment: Equipment | null;
 }
 
 const initialState: EquipmentState = {
-  // Set initial state values here
+  equipmentList: [],
+  selectedEquipment: null,
 };
 
 const equipmentSlice = createSlice({
-  name: "equipment",
+  name: fileName,
   initialState,
   reducers: {
-    // Define your reducer actions here
+    getAll: (state, action: PayloadAction<Equipment[]>) => {
+      state.equipmentList = action.payload;
+    },
+    add: (state, action: PayloadAction<Equipment>) => {
+      state.equipmentList.push(action.payload);
+    },
+    update: (state, action: PayloadAction<Equipment>) => {
+      const { id } = action.payload;
+      const index = state.equipmentList.findIndex(
+        (equipment) => equipment.id === id
+      );
+      if (index !== -1) {
+        state.equipmentList[index] = action.payload;
+      }
+    },
+    delete: (state, action: PayloadAction<string>) => {
+      const id = action.payload;
+      state.equipmentList = state.equipmentList.filter(
+        (equipment) => equipment.id !== id
+      );
+    },
+    select: (state, action: PayloadAction<string>) => {
+      const id = action.payload;
+      state.selectedEquipment =
+        state.equipmentList.find((equipment) => equipment.id === id) || null;
+    },
   },
 });
 
-export const { actions } = equipmentSlice;
+export const actions = equipmentSlice.actions;
+
 export default equipmentSlice.reducer;
