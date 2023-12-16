@@ -5,6 +5,7 @@ import MainLayout from "components/layout/main";
 import { createBrowserRouter } from "react-router-dom";
 import Login from "pages/login";
 import BasicLayout from "components/layout/basic";
+import EquipmentList from "pages/equipment";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,16 @@ const router = createBrowserRouter([
         {...{ header: <Header />, menu: <Menu />, footer: <Footer /> }}
       />
     ),
+    children: [
+      {
+        path: "/",
+        element: <div>Home</div>,
+      },
+      {
+        path: "/equipment",
+        element: <EquipmentList />,
+      },
+    ],
   },
   {
     path: "/login",
