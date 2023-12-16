@@ -13,7 +13,7 @@ const MainLayout: FC<MainLayoutProps> = ({ header, footer, menu }) => {
       <header>{header}</header>
       <div className="flex flex-grow">
         <div className="w-1/4 bg-gray-200">{menu}</div>
-        <main className="flex-grow">
+        <main className="flex-grow flex">
           <Outlet />
         </main>
       </div>

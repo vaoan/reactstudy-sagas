@@ -1,0 +1,15 @@
+{
+  "label": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "sign-in": "Sign In",
+    "forgot-password": "Forgot Password?"
+  },
+  "placeholder": {
+    "username": "Enter Username",
+    "password": "Enter Password",
+    "enter-your-username": "Enter Username",
+    "enter-your-password": "Enter Password"
+  }
+}
