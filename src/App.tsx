@@ -1,33 +1,16 @@
-import logo from "./logo.svg";
+import { I18nProvider } from "models/providers/i18n";
 import "./App.css";
 import { useTranslation } from "react-i18next";
-import { RouterProvider } from "react-router-dom";
-import router from "configs/routes";
 
 function App() {
   const [t] = useTranslation(["general"]);
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline text-red-600">
-        Simple React Typescript Tailwind Sample
-      </h1>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {t("Hello")}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <RouterProvider router={router} />
-      </header>
-    </div>
+    <I18nProvider i18n={t}>
+      <div className="flex h-screen">
+        <div className="w-1/4 bg-gray-200">{/* Sidebar */}</div>
+        <div className="w-3/4 bg-white">{/* Main Content */}</div>
+      </div>
+    </I18nProvider>
   );
 }
 
