@@ -1,11 +1,5 @@
 import { TFunction } from "i18next";
-import {
-  FC,
-  PropsWithChildren,
-  ReactNode,
-  createContext,
-  useContext,
-} from "react";
+import { FC, PropsWithChildren, createContext, useContext } from "react";
 
 // Define the context
 interface I18nContextProps {
@@ -17,10 +11,7 @@ const I18nContext = createContext<I18nContextProps | undefined>(undefined);
 // Define the provider component
 interface I18nProviderProps extends I18nContextProps, PropsWithChildren {}
 
-export const I18nProvider: FC<I18nProviderProps> = ({
-  i18n,
-  children,
-}): ReactNode => {
+export const I18nProvider: FC<I18nProviderProps> = ({ i18n, children }) => {
   return (
     <I18nContext.Provider value={{ i18n }}>{children}</I18nContext.Provider>
   );
