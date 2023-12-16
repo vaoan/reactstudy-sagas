@@ -4,6 +4,7 @@ import Menu from "components/structural/menu";
 import MainLayout from "components/layout/main";
 import { createBrowserRouter } from "react-router-dom";
 import Login from "pages/login";
+import BasicLayout from "components/layout/basic";
 
 const router = createBrowserRouter([
   {
@@ -16,11 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: (
-      <MainLayout
-        {...{ header: <Header />, menu: <Menu />, footer: <Footer /> }}
-      />
-    ),
+    element: <BasicLayout />,
     children: [
       {
         path: "/login",
