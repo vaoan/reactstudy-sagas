@@ -6,6 +6,7 @@ import Login from "pages/login";
 import BasicLayout from "components/layout/basic";
 import EquipmentList from "pages/equipment";
 import Header from "components/structural/header";
+import Dashboard from "components/layout/dashboard";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <h2>Dashboard</h2>,
+    element: <Dashboard />,
   },
 ]);
 
